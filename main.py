@@ -18,6 +18,7 @@ def get_tfidf_matrix(csv_path):
 
     return tfidf_matrix
 
+
 # Initialize parameters
 num_epochs = 100
 learning_rate = 0.01
@@ -67,28 +68,3 @@ predicted_labels = np.argmax(predicted_probabilities, axis=1)
 accuracy = np.mean(predicted_labels == y_test)
 print(f"Accuracy: {accuracy}")
 
-
-# Example corpus (list of text documents)
-corpus = [
-    "This is the first document.",
-    "This document is the second document.",
-    "And this is the third one.",
-    "Is this the first document?",
-]
-
-# Initialize TfidfVectorizer
-tfidf_vectorizer = TfidfVectorizer()
-
-# Fit the vectorizer to the data and transform the corpus into TF-IDF features
-tfidf_matrix = tfidf_vectorizer.fit_transform(corpus)
-
-# Get the feature names (words in the vocabulary)
-feature_names = tfidf_vectorizer.get_feature_names_out()
-
-# Convert the TF-IDF matrix to a dense numpy array (if needed)
-tfidf_matrix_dense = tfidf_matrix.toarray()
-
-# Print the feature names and TF-IDF matrix
-print("Feature names:", feature_names)
-print("TF-IDF Matrix:")
-print(tfidf_matrix_dense)
