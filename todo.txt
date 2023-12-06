@@ -1,0 +1,3 @@
+DONE - create visualization of training and testing data for our report
+- create nlp basis
+- get cross validation working
