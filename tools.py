@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-#import torch
+
 
 import tensorflow as tf
 from keras.models import Sequential
@@ -10,9 +10,8 @@ from keras.utils import pad_sequences
 
 
 from sklearn.model_selection import train_test_split
-#import nltk
-import re
-#nltk.download('stopwords')
+
+
 
 def preprocess_data(file_path):
     #get data from csv files
@@ -29,7 +28,7 @@ def preprocess_data(file_path):
                                  'identity_hate']]).values
 
 
-    Xtr,Xte,ytr,yte = train_test_split(X,Y, test_size=0.1)
+    Xtr,Xte,ytr,yte = train_test_split(X,Y, test_size=0.2)
 
    
     return Xtr,ytr,Xte,yte
@@ -41,17 +40,7 @@ def tokenize(x,num_words=100):
     return pad_sequences(x, padding='post')
 
 
-def clean_text(text):
-    '''
-    STOPWORDS = set(nltk.corpus.stopwords.words('english'))
 
-    text = ' '.join(word for word in text.split() if word not in STOPWORDS)
-    return text
-    '''
 
-def one_hot_encode(labels, num_classes=6):
-    encoded = np.zeros((len(labels), num_classes))
-    for i, label in enumerate(labels):
-        encoded[i, label] = 1
-    return encoded
+
 
