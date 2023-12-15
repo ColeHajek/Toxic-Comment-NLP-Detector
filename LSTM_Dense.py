@@ -7,19 +7,19 @@ from keras.layers import LSTM,Embedding,Dense,SpatialDropout1D
 from keras.metrics import BinaryAccuracy, Precision, Recall
 from keras.utils import set_random_seed
 
-
-
 seed = 42
 set_random_seed(seed)
 
 # Load in training data
-dataset_path = os.path.join(os.getcwd(), 'data\\50pruned_w_gen.csv')
-Xtr,ytr,Xte,yte = tools.preprocess_data(dataset_path)
+train_data_fn = 'NAME OF YOUR TRAINING DATA .csv FILE'
+train_data_path = os.path.join(os.getcwd(), train_data_fn)
+Xtr,ytr,Xte,yte = tools.preprocess_data(train_data_path)
 
 # Path to save model weights and model output
-checkpoint_path = os.path.join(os.getcwd(), 'models\\LSTM_Dense_50_w_gen.ckpt')
-output_path = os.path.join(os.getcwd(),'results\\50_w_gen_results.txt')
-
+checkpoint_fn = 'NAME OF YOUR CHECKPOINT .ckpt FILE'
+results_fn = 'NAME OF YOUR RESULTS .txt FILE'
+checkpoint_path = os.path.join(os.getcwd(), checkpoint_fn)
+output_path = os.path.join(os.getcwd(), results_fn)
 
 # True if loading model weights from file
 # False if training model from scratch
