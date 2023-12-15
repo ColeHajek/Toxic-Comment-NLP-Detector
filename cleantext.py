@@ -10,6 +10,10 @@ import numpy as np
 #nltk.download('punkt')
 
 def cleanString(text):
+    '''
+    Removes stopwords, special characters, punctuation
+    Turns all words into lowercase stemmed words
+    '''
     stop_words = set(stopwords.words('english'))
     porter = PorterStemmer()
 
@@ -24,6 +28,9 @@ def cleanString(text):
 
 #used to make a csv file so that you dont have to clean the training data every time you run the program
 def makeCleanCSVFiles(fn, fn_destination):
+    '''
+    Creates CSV file of cleaned data
+    '''
     train_csv = os.path.join(os.getcwd(), fn_destination)
     train_data = pd.read_csv(fn)
 
@@ -43,7 +50,7 @@ def makeCleanCSVFiles(fn, fn_destination):
             row_str = ','.join(map(str, row.values.tolist())) + '\n'
             train_file.write(row_str)
 
-    # process second half
+    # Process second half
     with open(train_csv, 'a', encoding='utf-8') as train_file:
         for index, row in train_data.iterrows():
             if index <= max_depth:
