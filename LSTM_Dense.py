@@ -13,7 +13,7 @@ set_random_seed(seed)
 # Load in training data
 train_data_fn = 'NAME OF YOUR TRAINING DATA .csv FILE'
 train_data_path = os.path.join(os.getcwd(), train_data_fn)
-Xtr,ytr,Xte,yte = tools.preprocess_data(train_data_path)
+Xtr,Xte,ytr,yte = tools.preprocess_data(train_data_path)
 
 # Path to save model weights and model output
 checkpoint_fn = 'NAME OF YOUR CHECKPOINT .ckpt FILE'
