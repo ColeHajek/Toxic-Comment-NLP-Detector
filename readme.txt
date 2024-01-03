@@ -1,8 +1,1 @@
-This program's purpouse is to identify different classifications of toxcicity using a natural language processor.
-toxic
-severe_toxic
-obscene
-threat
-insult
-identity_hate
-You must create a model which predicts a probability of each type of toxicity for each comment.
+This program aims to identify different toxicity classifications (toxic, severe_toxic, obscene, threat, insult, identity_hate) by first preprocessing and manipulating datasets in the form of CSV files and then using a Convolutional Neural Network model.
